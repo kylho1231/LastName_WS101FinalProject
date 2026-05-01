@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect to add trailing slash if missing (using relative path)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
+# Enable rewrite for clean URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
